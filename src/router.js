@@ -12,9 +12,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/repo',
+      path: '/repo:name',
       name: 'repo',
       component: () => import('@/views/Repo.vue')
+    },
+    {
+      path: '/content',
+      name: 'content',
+      component: () => import('@/views/Content.vue')
     }
   ]
 })

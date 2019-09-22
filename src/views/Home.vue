@@ -18,7 +18,7 @@
       <div>
         <ul class="list-container pl-0">
           <li class="list-unstyled my-3" v-for="repo in reposData" v-bind:key="repo.id">
-            <router-link to="/repo" class="deco-none">
+            <router-link :to="{ name: 'repo', params: { name: repo.full_name }}" class="deco-none">
               <repoComponent v-bind:repo="repo" />
             </router-link>
           </li>
@@ -50,7 +50,8 @@ export default {
     service.GetUserData().then(response => {
       this.usersData = response.data;
       this.$store.commit("loadFileDetails", this.usersData[0]);
-      this.selectedUser = this.usersData[0];
+      debugger;
+      this.selectedUser = response.data[0];
       this.getRepoData();
       console.log(response);
     });

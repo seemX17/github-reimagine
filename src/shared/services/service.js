@@ -9,8 +9,11 @@ export default class Services {
       return axios.get(url);
     };
 
-    GetRepoContent(){
-      return axios.get("https://api.github.com/repos/cheapRoc/awesome-mixtapes/contents/");
+    GetRepoContent(name){
+      return axios.get(`https://api.github.com/repos/${name}/contents/`);
+    }
+    GetFileContent(url){
+      return axios.get(url);
     }
     
 }
