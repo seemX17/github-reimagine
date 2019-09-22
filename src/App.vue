@@ -16,7 +16,6 @@
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 
-
 $accent: #2980b9;
 $text-color: #2c3e50;
 
@@ -76,11 +75,17 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
-  margin: 15px;
+  align-self: center;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+.selected-image {
+  height: 36px;
+  align-self: center;
+  margin-left: auto;
 }
 
 //homepage
@@ -91,7 +96,7 @@ body {
 }
 
 //repo card
-.repo-img{
+.repo-img {
   height: 25px;
 }
 </style>
