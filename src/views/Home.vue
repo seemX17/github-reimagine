@@ -18,7 +18,9 @@
       <div>
         <ul class="list-container pl-0">
           <li class="list-unstyled my-3" v-for="repo in reposData" v-bind:key="repo.id">
-            <repoComponent v-bind:repo="repo" />
+            <router-link to="/repo" class="deco-none">
+              <repoComponent v-bind:repo="repo" />
+            </router-link>
           </li>
         </ul>
       </div>
@@ -60,7 +62,7 @@ export default {
     },
     getRepoData: function() {
       const service = new Services();
-      service.GetRepoData(this.selectedUser.repos_url).then(response => {
+      service.GetReposData(this.selectedUser.repos_url).then(response => {
         this.reposData = response.data;
         console.log(response);
       });

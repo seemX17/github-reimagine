@@ -99,4 +99,18 @@ body {
 .repo-img {
   height: 25px;
 }
+
+.card-description {
+  text-decoration: none !important;
+  color: $text-color;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.deco-none {
+  &:hover {
+    text-decoration: none;
+  }
+}
 </style>

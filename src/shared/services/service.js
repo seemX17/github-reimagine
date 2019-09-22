@@ -5,7 +5,12 @@ export default class Services {
       return axios.get("https://api.github.com/users?since=135");
     };
 
-    GetRepoData(url){
+    GetReposData(url){
       return axios.get(url);
     };
+
+    GetRepoContent(){
+      return axios.get("https://api.github.com/repos/cheapRoc/awesome-mixtapes/contents/");
+    }
+    
 }

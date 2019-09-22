@@ -3,7 +3,7 @@
     <img class="repo-img mt-1" src="../assets/ic-folder.svg">
     <div class="text-left ml-4">
       <h4 class="text-capitalize my-1">{{repo.name }}</h4>
-      <span>{{repo.description}}</span>
+      <span class="card-description">{{repo.description}}</span>
     </div>
   </div>
 </template>
