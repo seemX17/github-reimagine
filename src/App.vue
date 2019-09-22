@@ -74,8 +74,8 @@ body {
 }
 .user-image {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin: 15px;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -84,9 +84,14 @@ body {
 }
 
 //homepage
-.user-list-container {
+.list-container {
   height: 90vh;
   overflow: scroll;
   overflow-x: hidden;
+}
+
+//repo card
+.repo-img{
+  height: 25px;
 }
 </style>
