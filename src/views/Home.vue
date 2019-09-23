@@ -52,7 +52,6 @@ export default {
       this.$store.commit("loadFileDetails", this.usersData[0]);
       this.selectedUser = response.data[0];
       this.getRepoData();
-      console.log(response);
     });
   },
   methods: {
@@ -64,7 +63,6 @@ export default {
       const service = new Services();
       service.GetReposData(this.selectedUser.repos_url).then(response => {
         this.reposData = response.data;
-        console.log(response);
       });
     }
   },
