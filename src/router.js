@@ -17,8 +17,8 @@ export default new Router({
       component: () => import('@/views/Repo.vue')
     },
     {
-      path: '/content',
-      name: 'content',
+      path: '/content:data',
+      name: 'contentComponent',
       component: () => import('@/views/Content.vue')
     }
   ]

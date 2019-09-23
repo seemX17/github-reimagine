@@ -50,7 +50,6 @@ export default {
     service.GetUserData().then(response => {
       this.usersData = response.data;
       this.$store.commit("loadFileDetails", this.usersData[0]);
-      debugger;
       this.selectedUser = response.data[0];
       this.getRepoData();
       console.log(response);

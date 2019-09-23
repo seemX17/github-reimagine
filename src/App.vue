@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <div class="nav p-3">
-      <img class="logo navbar-brand mr-0" src="./assets/logo.svg" />
-      <img class="logo-text my-auto" src="./assets/github.png" />
-    </div>
+    <router-link to="/">
+      <div class="nav p-3 pointer">
+        <img class="logo navbar-brand mr-0" src="./assets/logo.svg" />
+        <img class="logo-text my-auto" src="./assets/github.png" />
+      </div>
+    </router-link>
 
     <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view class="mt-5" />
+    <router-view :key="$route.fullPath" class="mt-5" />
   </div>
 </template>
 
@@ -48,6 +50,10 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 //navbar
