@@ -1,6 +1,9 @@
 <template>
   <div>
-    <router-link to="/" class="pointer">Back</router-link>
+   <div class="d-flex px-4 py-2 align-items-center">
+     <img src="../assets/ic_back.svg" height="18" />
+      <router-link class="align-self-start pointer text-dark ml-2 backbtn-text" to="/repo">Back</router-link>   
+    </div>
     <ul>
       <li class="list-unstyled my-3" v-for="repo in repoData" v-bind:key="repo.id">
         <router-link

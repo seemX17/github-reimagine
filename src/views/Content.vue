@@ -1,14 +1,17 @@
 <template>
-  <div class="p-5 m-5 mx-auto w-75">
-    <div class="d-flex p-4">
-      <router-link class="align-self-start pointer" to="/repo">Back</router-link>
-      <div class="align-self-end ml-auto pointer" v-on:click="downloadFile">
-         <img class=" download-image" src="../assets/ic_download.svg" alt />
-         <span class="text-primary">Download</span>
-      </div>
-     
+  <div>
+    <div class="d-flex px-4 py-2 align-items-center">
+      <img src="../assets/ic_back.svg" height="18" />
+      <router-link class="align-self-start pointer text-dark ml-2 backbtn-text" to="/repo">Back</router-link>
+      
     </div>
-    <div class="text-left border content p-5">{{contentData}}</div>
+    <div class="px-5  mx-auto w-75">
+      <div class="pointer text-right mb-3" v-on:click="downloadFile">
+        <img class="download-image align-baseline mr-2" src="../assets/ic_download.svg" alt />
+        <span class="text-uppercase">Download</span>
+      </div>
+      <div class="text-left border content p-5">{{contentData}}</div>
+    </div>
   </div>
 </template>
 
@@ -32,14 +35,16 @@ export default {
       this.contentData = window.atob(response.data.content);
     });
   },
-  methods:{
-    downloadFile: function(){
-      const url = window.URL.createObjectURL(new Blob([this.fileData.download_url]))
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', this.fileData.name) //or any other extension
-      document.body.appendChild(link)
-      link.click()
+  methods: {
+    downloadFile: function() {
+      const url = window.URL.createObjectURL(
+        new Blob([this.fileData.download_url])
+      );
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", this.fileData.name); //or any other extension
+      document.body.appendChild(link);
+      link.click();
     }
   }
 };

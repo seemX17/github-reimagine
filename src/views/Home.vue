@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div class="col">
-      <h3 class="text-uppercase text-left">{{selectedUser.login}}</h3>
+      <h3 class="text-uppercase text-left">Repositories</h3>
       <div>
         <ul class="list-container pl-0">
           <li class="list-unstyled my-3" v-for="repo in reposData" v-bind:key="repo.id">

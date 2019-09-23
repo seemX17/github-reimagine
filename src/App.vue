@@ -11,7 +11,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view :key="$route.fullPath" class="mt-5" />
+    <router-view :key="$route.fullPath" class="mt-3" />
   </div>
 </template>
 
@@ -55,15 +55,17 @@ body {
 .pointer {
   cursor: pointer;
 }
-
+.backbtn-text {
+  font-size: 20px;
+}
 //navbar
 .logo {
   float: left;
-  height: 63px;
+  height: 51px;
   margin: 0;
 }
 .logo-text {
-  height: 30px;
+  height: 24px;
 }
 
 //card
