@@ -17,5 +17,9 @@ export default class RepositoryService {
     getFileContent(url){
       return axios.get(url);
     }
+
+    getCommits(name){
+      return axios.get(`https://api.github.com/repos/${name}/commits/`);
+    }
     
 }

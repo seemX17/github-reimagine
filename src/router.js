@@ -24,6 +24,11 @@ export default new Router({
       path: '/content:data',
       name: 'contentViewComponent',
       component: () => import('@/views/Content.vue')
+    },
+    {
+      path: '/history:data',
+      name: 'historyViewComponent',
+      component: () => import('@/views/History.vue')
     }
   ]
 })
