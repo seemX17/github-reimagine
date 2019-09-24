@@ -9,7 +9,9 @@
         <img class="download-image align-baseline mr-2" src="../assets/ic_download.svg" alt />
         <span class="text-uppercase">Download</span>
       </div>
-      <div class="text-left border content p-5">{{fileContents}}</div>
+      <div class="text-left border content p-4">
+        <code>{{fileContents}}</code>
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +39,9 @@ export default {
   methods: {
     downloadFile: function() {
       const url = window.URL.createObjectURL(
-        new Blob([this.fileConfig.download_url])
+        new Blob([this.fileContents])
       );
+      debugger;
       const anchorElement = document.createElement("a");
       anchorElement.href = url;
       anchorElement.setAttribute("download", this.fileConfig.name);
@@ -51,13 +54,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.content {
-  font-size: 12px;
-  white-space: pre-wrap;
-}
-.download-image {
-  height: 20px;
-}
-</style>

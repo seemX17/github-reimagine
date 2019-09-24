@@ -15,6 +15,7 @@
 
 $accent: #2980b9;
 $text-color: #2c3e50;
+$white: #ffffff;
 
 html,
 body {
@@ -32,17 +33,17 @@ body {
 //custom scrollbar
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: #f5f5f5;
+  border-radius: 5px;
+  background-color: $white;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  background-color: #f5f5f5;
+  width: 5px;
+  background-color: $white;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
 }
@@ -90,7 +91,12 @@ body {
   align-self: center;
   margin-left: auto;
 }
-
+.repo-name{
+  cursor: pointer;
+  &:hover{
+    color: $accent;    
+  }
+}
 //homepage
 .list-container {
   height: 90vh;
@@ -115,5 +121,29 @@ body {
   &:hover {
     text-decoration: none;
   }
+}
+
+//erro page
+.area-container {
+  position: relative;
+  display: block;
+  height: 500px;
+  width: 100%;
+  margin: 10px;
+}
+.content-container {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+
+//content page
+.content {
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+.download-image {
+  height: 20px;
 }
 </style>
