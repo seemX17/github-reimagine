@@ -11,6 +11,11 @@ export default new Router({
       component: homeViewComponent
     },
     {
+      path: '*',
+      name: 'errorViewComponent',
+      component: () => import('@/views/Error.vue')
+    },
+    {
       path: '/repo:data',
       name: 'repoViewComponent',
       component: () => import('@/views/Repo.vue')

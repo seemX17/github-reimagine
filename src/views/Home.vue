@@ -3,12 +3,7 @@
     <div class="col">
       <h3 class="text-uppercase text-left">Users</h3>
       <ul class="list-container pl-0">
-        <li
-          class="list-unstyled m-2"
-          v-for="user in usersList"
-          v-bind:key="user.id"
-          v-on:click="onClick(user)"
-        >
+        <li class="list-unstyled m-2" v-for="user in usersList" v-bind:key="user.id" v-on:click="onClick(user)">
           <userCardComponent v-bind:user="user" />
         </li>
       </ul>
