@@ -1,24 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import homeViewComponent from './views/Home.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'homeViewComponent',
+      component: homeViewComponent
     },
     {
-      path: '/repo:name',
-      name: 'repo',
+      path: '/repo:data',
+      name: 'repoViewComponent',
       component: () => import('@/views/Repo.vue')
     },
     {
       path: '/content:data',
-      name: 'contentComponent',
+      name: 'contentViewComponent',
       component: () => import('@/views/Content.vue')
     }
   ]

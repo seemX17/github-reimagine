@@ -2,7 +2,7 @@
   <div class="card-container d-flex">
     <div class="user-image ml-5" :style="{ backgroundImage: `url(${user.avatar_url})`}"></div>
     <div class="ml-4">
-      <h3 class="text-light text-capitalize my-4">{{user.login }}</h3>
+      <h3 class="text-light text-capitalize my-4">{{user.login}}</h3>
     </div>
     <img class="selected-image mr-4" src="../assets/ic_arrow.svg" v-if="user.id == selectedUser.id" />
   </div>
@@ -10,9 +10,9 @@
 
 <script>
 export default {
-  name: "userComponent",
+  name: "userCardComponent",
   props: {
-    user: Object
+    user: Object,
   },
   data() {
     return {
@@ -24,8 +24,8 @@ export default {
       state => {
         return this.$store.state.selectedUser;
       },
-      (newValue, oldValue) => {
-        this.selectedUser = newValue;
+      (newUser, oldUser) => {
+        this.selectedUser = newUser;
       }
     );
   }

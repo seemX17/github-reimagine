@@ -6,11 +6,6 @@
         <img class="logo-text my-auto" src="./assets/github.png" />
       </div>
     </router-link>
-
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>-->
     <router-view :key="$route.fullPath" class="mt-3" />
   </div>
 </template>

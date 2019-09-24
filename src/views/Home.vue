@@ -5,11 +5,11 @@
       <ul class="list-container pl-0">
         <li
           class="list-unstyled m-2"
-          v-for="user in usersData"
+          v-for="user in usersList"
           v-bind:key="user.id"
           v-on:click="onClick(user)"
         >
-          <userComponent v-bind:user="user" />
+          <userCardComponent v-bind:user="user" />
         </li>
       </ul>
     </div>
@@ -17,10 +17,8 @@
       <h3 class="text-uppercase text-left">Repositories</h3>
       <div>
         <ul class="list-container pl-0">
-          <li class="list-unstyled my-3" v-for="repo in reposData" v-bind:key="repo.id">
-            <router-link :to="{ name: 'repo', params: { name: repo.full_name }}" class="deco-none">
-              <repoComponent v-bind:repo="repo" />
-            </router-link>
+          <li class="list-unstyled my-3" v-for="repo in repoList" v-bind:key="repo.id" v-on:click="toPage(repo.full_name)">
+              <repoCardComponent v-bind:repo="repo" />
           </li>
         </ul>
       </div>
@@ -29,27 +27,27 @@
 </template>
 
 <script>
-import userComponent from "@/components/UserCard.vue";
-import repoComponent from "@/components/RepoCard.vue";
-import Services from "@/shared/services/service";
+import userCardComponent from "@/components/UserCard.vue";
+import repoCardComponent from "@/components/RepositoryCard.vue";
+import RepositoryService from "@/shared/services/repositoryService";
 
 export default {
-  name: "home",
+  name: "homeViewComponent",
   components: {
-    userComponent,
-    repoComponent
+    userCardComponent,
+    repoCardComponent
   },
   data() {
     return {
-      usersData: [],
-      reposData: []
+      usersList: [],
+      repoList: []
     };
   },
   mounted() {
-    const service = new Services();
-    service.GetUserData().then(response => {
-      this.usersData = response.data;
-      this.$store.commit("loadFileDetails", this.usersData[0]);
+    const service = new RepositoryService();
+    service.getUsers().then(response => {
+      this.usersList = response.data;
+      this.$store.commit("loadFileDetails", this.usersList[0]);
       this.selectedUser = response.data[0];
       this.getRepoData();
     });
@@ -60,10 +58,13 @@ export default {
       this.getRepoData();
     },
     getRepoData: function() {
-      const service = new Services();
-      service.GetReposData(this.selectedUser.repos_url).then(response => {
-        this.reposData = response.data;
+      const service = new RepositoryService();
+      service.getRepositories(this.selectedUser.repos_url).then(response => {
+        this.repoList = response.data;
       });
+    },
+    toPage:function(fullname){
+      this.$router.push({ name: 'repoViewComponent', params: { data: fullname }})
     }
   },
   computed: {

@@ -1,18 +1,20 @@
 import axios from 'axios';
 
-export default class Services {
-    GetUserData(){
+export default class RepositoryService {
+  
+    getUsers(){
       return axios.get("https://api.github.com/users?since=135");
-    };
+    }
 
-    GetReposData(url){
+    getRepositories(url){
       return axios.get(url);
-    };
+    }
 
-    GetRepoContent(name){
+    getRepositoryFiles(name){
       return axios.get(`https://api.github.com/repos/${name}/contents/`);
     }
-    GetFileContent(url){
+
+    getFileContent(url){
       return axios.get(url);
     }
     
