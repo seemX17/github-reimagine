@@ -27,12 +27,7 @@
       </nav>
       <div>
         <ul class="pl-0">
-          <li
-            class="list-unstyled my-3"
-            v-for="repo in paginatedData"
-            v-bind:key="repo.id"
-            v-on:click="toPage(repo.full_name)"
-          >
+          <li class="list-unstyled my-3" v-for="repo in paginatedData" v-bind:key="repo.id" v-on:click="toPage(repo.full_name)">
             <repoCardComponent v-bind:repo="repo" />
           </li>
         </ul>
