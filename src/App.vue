@@ -6,7 +6,7 @@
         <img class="logo-text my-auto" src="./assets/github.png" />
       </div>
     </router-link>
-    <router-view :key="$route.fullPath" class="mt-3" />
+    <router-view :key="$route.fullPath" />
   </div>
 </template>
 
@@ -20,6 +20,9 @@ $white: #ffffff;
 html,
 body {
   font-family: "Montserrat", sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 #app {
@@ -99,7 +102,7 @@ body {
 }
 //homepage
 .list-container {
-  height: 90vh;
+  height: 86vh;
   overflow: scroll;
   overflow-x: hidden;
 }

@@ -3,17 +3,37 @@
     <div class="col">
       <h3 class="text-uppercase text-left">Users</h3>
       <ul class="list-container pl-0">
-        <li class="list-unstyled m-2" v-for="user in usersList" v-bind:key="user.id" v-on:click="onClick(user)">
+        <li
+          class="list-unstyled m-2"
+          v-for="user in usersList"
+          v-bind:key="user.id"
+          v-on:click="onClick(user)"
+        >
           <userCardComponent v-bind:user="user" />
         </li>
       </ul>
     </div>
     <div class="col">
       <h3 class="text-uppercase text-left">Repositories</h3>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination flex-row-reverse">
+          <li class="page-item">
+            <button class="page-link" :disabled="pageNumber >= pageCount -1" @click="nextPage">Next</button>
+          </li>
+          <li class="page-item">
+            <button class="page-link" :disabled="pageNumber === 0" @click="prevPage">Previous</button>
+          </li>
+        </ul>
+      </nav>
       <div>
-        <ul class="list-container pl-0">
-          <li class="list-unstyled my-3" v-for="repo in repoList" v-bind:key="repo.id" v-on:click="toPage(repo.full_name)">
-              <repoCardComponent v-bind:repo="repo" />
+        <ul class="pl-0">
+          <li
+            class="list-unstyled my-3"
+            v-for="repo in paginatedData"
+            v-bind:key="repo.id"
+            v-on:click="toPage(repo.full_name)"
+          >
+            <repoCardComponent v-bind:repo="repo" />
           </li>
         </ul>
       </div>
@@ -32,10 +52,18 @@ export default {
     userCardComponent,
     repoCardComponent
   },
+  props: {
+    size: {
+      type: Number,
+      required: false,
+      default: 10
+    }
+  },
   data() {
     return {
       usersList: [],
-      repoList: []
+      repoList: [],
+      pageNumber: 0
     };
   },
   mounted() {
@@ -58,8 +86,17 @@ export default {
         this.repoList = response.data;
       });
     },
-    toPage:function(fullname){
-      this.$router.push({ name: 'repoViewComponent', params: { data: fullname }})
+    toPage: function(fullname) {
+      this.$router.push({
+        name: "repoViewComponent",
+        params: { data: fullname }
+      });
+    },
+    nextPage() {
+      this.pageNumber++;
+    },
+    prevPage() {
+      this.pageNumber--;
     }
   },
   computed: {
@@ -70,6 +107,19 @@ export default {
       set(value) {
         this.$store.commit("loadFileDetails", value);
       }
+    },
+    rows() {
+      return this.repoList.length;
+    },
+    pageCount() {
+      let l = this.repoList.length,
+        s = this.size;
+      return Math.ceil(l / s);
+    },
+    paginatedData() {
+      const start = this.pageNumber * this.size,
+        end = start + this.size;
+      return this.repoList.slice(start, end);
     }
   }
 };
