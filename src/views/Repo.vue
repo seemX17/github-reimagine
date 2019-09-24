@@ -6,7 +6,7 @@
     </div>
     <ul>
       <li class="list-unstyled my-3" v-for="repo in repoList" v-bind:key="repo.id">
-        <a class="deco-none"  v-on:click="toPage('repo',repo.url)" v-if="repo.type == 'dir'" >
+        <a class="deco-none"  v-on:click="toPage('repoViewComponent',repo.url)" v-if="repo.type == 'dir'" >
           <div class="d-flex pointer">
             <img class="repo-img mt-1" src="../assets/ic_folder.svg" />
             <div class="text-left ml-4">

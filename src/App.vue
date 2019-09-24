@@ -91,10 +91,10 @@ body {
   align-self: center;
   margin-left: auto;
 }
-.repo-name{
+.repo-name {
   cursor: pointer;
-  &:hover{
-    color: $accent;    
+  &:hover {
+    color: $accent;
   }
 }
 //homepage
@@ -145,5 +145,8 @@ body {
 }
 .download-image {
   height: 20px;
+}
+code {
+  font-weight: bold;
 }
 </style>

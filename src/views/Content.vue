@@ -41,7 +41,6 @@ export default {
       const url = window.URL.createObjectURL(
         new Blob([this.fileContents])
       );
-      debugger;
       const anchorElement = document.createElement("a");
       anchorElement.href = url;
       anchorElement.setAttribute("download", this.fileConfig.name);
