@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-container">
     <div class="d-flex px-4 py-2 align-items-center">
       <img src="../assets/ic_back.svg" height="18" />
       <a class="align-self-start pointer text-dark ml-2 backbtn-text"  v-on:click="goBack()">Back</a>      
@@ -9,7 +9,7 @@
         <img class="download-image align-baseline mr-2" src="../assets/ic_download.svg" alt />
         <span class="text-uppercase">Download</span>
       </div>
-      <div class="text-left border content p-4">
+      <div class="text-left border content p-4 ">
         <code>{{fileContents}}</code>
       </div>
     </div>

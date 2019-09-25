@@ -51,11 +51,30 @@ body {
   background-color: #555;
 }
 
+//common classes
 .pointer {
   cursor: pointer;
 }
 .backbtn-text {
   font-size: 20px;
+}
+.page-link:disabled {
+  background: lightgray;
+  color: white;
+  &:hover {
+    background: lightgray;
+    color: white;
+  }
+}
+.scroll{
+  overflow: scroll;
+  height: 75vh;
+  overflow-x: hidden;
+}
+.scroll-short{
+ overflow: scroll;
+  height: 65vh;
+  overflow-x: hidden;
 }
 //navbar
 .logo {

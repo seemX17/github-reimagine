@@ -7,7 +7,7 @@
     <div class="px-5 mx-auto w-75">
       <h2 class="text-left">Commits</h2>
       <div class="text-left border content py-4 px-2">        
-        <ul class="m-0 p-0">
+        <ul class="m-0 p-0 scroll">
           <li class="list-unstyled my-3" v-for="commit in commitList" v-bind:key="commit.id" >
             <commitCardComponent v-bind:commitValues="commit" />
           </li>
@@ -35,10 +35,8 @@ export default {
   },
   mounted() {
     const service = new RepositoryService();
-    debugger;
     service.getCommits(this.routeData).then(response => {
       const utilities = new Utilities();
-      debugger;
       this.commitList = utilities.sortByDate(response.data);
     });
   },

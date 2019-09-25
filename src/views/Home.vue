@@ -10,7 +10,7 @@
     </div>
     <div class="col">
       <h3 class="text-uppercase text-left">Repositories</h3>
-      <nav aria-label="Page navigation example">
+      <nav>
         <ul class="pagination flex-row-reverse">
           <li class="page-item">
             <button class="page-link" :disabled="pageNumber >= pageCount -1" @click="nextPage">Next</button>
@@ -21,8 +21,8 @@
         </ul>
       </nav>
       <div>
-        <ul class="pl-0">
-          <li class="list-unstyled my-3" v-for="repo in paginatedData" v-bind:key="repo.id">
+        <ul class="list-container pl-0 pr-3">
+          <li class="list-unstyled py-3" v-for="repo in paginatedData" v-bind:key="repo.id">
             <repoCardComponent v-bind:repo="repo" />
           </li>
         </ul>
@@ -46,7 +46,7 @@ export default {
     size: {
       type: Number,
       required: false,
-      default: 10
+      default: 8
     }
   },
   data() {
