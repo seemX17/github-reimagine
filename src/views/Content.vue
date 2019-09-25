@@ -4,7 +4,7 @@
       <img src="../assets/ic_back.svg" height="18" />
       <a class="align-self-start pointer text-dark ml-2 backbtn-text"  v-on:click="goBack()">Back</a>      
     </div>
-    <div class="px-5  mx-auto w-75">
+    <div class="px-5  mx-auto">
       <div class="pointer text-right mb-3" v-on:click="downloadFile">
         <img class="download-image align-baseline mr-2" src="../assets/ic_download.svg" alt />
         <span class="text-uppercase">Download</span>

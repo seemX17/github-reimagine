@@ -4,9 +4,9 @@
       <img src="../assets/ic_back.svg" height="18" />
       <a class="align-self-start pointer text-dark ml-2 backbtn-text" v-on:click="goBack()">Back</a>
     </div>
-    <div class="px-5 mx-auto w-75">
+    <div class="mx-auto  commit-container">
       <h2 class="text-left">Commits</h2>
-      <div class="text-left border content py-4 px-2">        
+      <div class="text-left border content">        
         <ul class="m-0 p-0 scroll">
           <li class="list-unstyled my-3" v-for="commit in commitList" v-bind:key="commit.id" >
             <commitCardComponent v-bind:commitValues="commit" />

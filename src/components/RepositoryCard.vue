@@ -5,7 +5,7 @@
       <h4 class="text-capitalize my-1 repo-name"  v-on:click="toPage(repo.full_name)">{{repo.name }}</h4>
       <span class="card-description">{{repo.description}}</span>
     </div>
-    <a class="ml-auto pointer text-primary" v-on:click="viewHistory(repo.full_name)">View History</a>
+    <a class="ml-auto pointer text-primary" v-on:click="viewHistory(repo.full_name)">History</a>
   </div>
   
 </template>

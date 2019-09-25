@@ -1,6 +1,6 @@
 <template>
   <div class="row m-0">
-    <div class="col">
+    <div class="col" v-if="isUserVisible">
       <h3 class="text-uppercase text-left">Users</h3>
       <ul class="list-container pl-0">
         <li class="list-unstyled m-2" v-for="user in usersList" v-bind:key="user.id" v-on:click="onClick(user)">
@@ -8,7 +8,11 @@
         </li>
       </ul>
     </div>
-    <div class="col">
+    <div class="col" v-if="isRepoVisible">
+      <div class="d-flex align-items-center desktop-hide mb-3">
+        <img class="desktop-hide" src="../assets/ic_back.svg" height="18" />
+        <a class="align-self-start pointer text-dark ml-2 backbtn-text desktop-hide" v-on:click="(isUserVisible = true, isRepoVisible = false)">Back</a>
+      </div>
       <h3 class="text-uppercase text-left">Repositories</h3>
       <nav>
         <ul class="pagination flex-row-reverse">
@@ -53,10 +57,19 @@ export default {
     return {
       usersList: [],
       repoList: [],
-      pageNumber: 0
+      pageNumber: 0,
+      isUserVisible: true,
+      isRepoVisible: true,
+      mobile: true
     };
   },
   mounted() {
+    //setting mobile boolean value
+    if( document.activeElement.offsetWidth >= 992 )
+    {
+        this.mobile = false;
+    }
+    //get users data
     const service = new RepositoryService();
     service.getUsers().then(response => {
       this.usersList = response.data;
@@ -69,6 +82,13 @@ export default {
     onClick: function(user) {
       this.selectedUser = user;
       this.getRepoData();
+      if(this.mobile){
+        this.isUserVisible = false;
+        this.isRepoVisible = true;
+      }else{
+          this.isUserVisible = true;
+        this.isRepoVisible = true;
+      }
     },
     getRepoData: function() {
       const service = new RepositoryService();

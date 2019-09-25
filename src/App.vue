@@ -66,13 +66,13 @@ body {
     color: white;
   }
 }
-.scroll{
+.scroll {
   overflow: scroll;
   height: 75vh;
   overflow-x: hidden;
 }
-.scroll-short{
- overflow: scroll;
+.scroll-short {
+  overflow: scroll;
   height: 65vh;
   overflow-x: hidden;
 }
@@ -86,6 +86,9 @@ body {
   height: 24px;
 }
 
+.desktop-hide{
+  display: none;
+}
 //card
 .card-container {
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
@@ -101,6 +104,7 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
+  margin-left: 30px;
   align-self: center;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -164,11 +168,28 @@ body {
 .content {
   font-size: 15px;
   white-space: pre-wrap;
+  padding: 1.5rem 0.5rem ;
 }
 .download-image {
   height: 20px;
 }
 code {
   font-weight: bold;
+}
+//commit container
+.commit-container{
+  width: 75%;
+}
+//media query
+@media screen and (max-width: 480px) {
+  .desktop-hide{
+    display: block;
+  }
+  .user-image{
+    margin-left: 10px !important;
+  }
+  .commit-container{
+    width: 80%;
+  }
 }
 </style>
