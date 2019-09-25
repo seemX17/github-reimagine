@@ -10,4 +10,10 @@ export default class Utils {
             return 0;
         })
     }
+
+    sortByDate(array){
+        return array.sort(function(a,b){
+            new Date(b.commit.committer.date) - new Date(b.commit.committer.date);
+        });
+    }
 }

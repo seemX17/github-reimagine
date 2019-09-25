@@ -54,7 +54,7 @@ export default {
     }
   },
   methods:{
-     goBack: function(){
+    goBack: function(){
       this.$router.go(-1);
     },
     toPage:function(componentName,url){

@@ -3,12 +3,7 @@
     <div class="col">
       <h3 class="text-uppercase text-left">Users</h3>
       <ul class="list-container pl-0">
-        <li
-          class="list-unstyled m-2"
-          v-for="user in usersList"
-          v-bind:key="user.id"
-          v-on:click="onClick(user)"
-        >
+        <li class="list-unstyled m-2" v-for="user in usersList" v-bind:key="user.id" v-on:click="onClick(user)">
           <userCardComponent v-bind:user="user" />
         </li>
       </ul>
@@ -27,7 +22,7 @@
       </nav>
       <div>
         <ul class="pl-0">
-          <li class="list-unstyled my-3" v-for="repo in paginatedData" v-bind:key="repo.id" v-on:click="toPage(repo.full_name)">
+          <li class="list-unstyled my-3" v-for="repo in paginatedData" v-bind:key="repo.id">
             <repoCardComponent v-bind:repo="repo" />
           </li>
         </ul>
@@ -79,12 +74,6 @@ export default {
       const service = new RepositoryService();
       service.getRepositories(this.selectedUser.repos_url).then(response => {
         this.repoList = response.data;
-      });
-    },
-    toPage: function(fullname) {
-      this.$router.push({
-        name: "repoViewComponent",
-        params: { data: fullname }
       });
     },
     nextPage() {

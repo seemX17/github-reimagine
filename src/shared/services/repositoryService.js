@@ -19,7 +19,7 @@ export default class RepositoryService {
     }
 
     getCommits(name){
-      return axios.get(`https://api.github.com/repos/${name}/commits/`);
+      return axios.get(`https://api.github.com/repos/${name}/commits`);
     }
     
 }
