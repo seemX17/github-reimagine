@@ -10,7 +10,7 @@
           <div class="d-flex pointer">
             <img class="repo-img mt-1" src="../assets/ic_folder.svg" />
             <div class="text-left ml-4">
-              <h4 class="text-capitalize my-1">{{repo.name }}</h4>
+              <h4 class="my-1">{{repo.name }}</h4>
             </div>
           </div>
         </a>
@@ -18,7 +18,7 @@
           <div class="d-flex pointer">
             <img class="repo-img mt-1" src="../assets/ic_file.svg" />
             <div class="text-left ml-4">
-              <h4 class="text-capitalize my-1">{{repo.name }}</h4>
+              <h4 class="my-1">{{repo.name }}</h4>
             </div>
           </div>
         </a>
