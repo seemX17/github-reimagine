@@ -5,6 +5,7 @@ import homeViewComponent from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', //removes hash from the route
   routes: [{
       path: '/',
       name: 'homeViewComponent',
